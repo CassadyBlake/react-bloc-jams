@@ -17,6 +17,7 @@ class App extends Component {
           <h1>Bloc Jams</h1>
         </header>
         <main>
+        // why exact path?...
           <Route exact path="/" component={Landing} />
           <Route path="/library" component={Library} />
         </main>
