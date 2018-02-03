@@ -28,7 +28,7 @@ export default [{
     title: 'Lovejoys',
     artist: 'Pickwick',
     releaseInfo: 'Small Press Records',
-    albumCover: 'assets/images/album_covers/22.jpg',
+    albumCover: '/assets/images/album_covers/22.jpg',
     slug: 'lovejoys',
     songs: [
       { title: 'Thought It Was You', duration: '246.86', soundFileUrl: 'assets/music/Thought.mp3' },
