@@ -2,17 +2,7 @@ import React, { Component } from 'react';
 
 class PlayerBar extends Component {
 
-  formatTime(timeInSeconds) {
-    let minutes = Math.floor(timeInSeconds / 60);
-    let seconds = Math.floor(timeInSeconds - (minutes * 60));
 
-    if(!timeInSeconds) { return "-:--" }
-
-    minutes = minutes < 10 ? "0" + minutes: minutes;
-    seconds = seconds < 10 ? "0" + seconds: seconds;
-
-    return minutes + ":" + seconds;
-  }
 
   render() {
     return (
@@ -29,7 +19,7 @@ class PlayerBar extends Component {
           </button>
         </section>
         <section id="time-control">
-          <div className="current-time">{this.formatTime(this.props.currentTime)}</div>
+          <div className="current-time">{this.props.formatTime(this.props.currentTime)}</div>
           <input
             type="range"
             className="seek-bar"
@@ -39,7 +29,7 @@ class PlayerBar extends Component {
             step="0.01"
             onChange={this.props.handleTimeChange}
           />
-          <div className="total-time">{this.formatTime(this.props.duration)}</div>
+          <div className="total-time">{this.props.formatTime(this.props.duration)}</div>
         </section>
         <section id="volume-control">
           <div className="icon ion-volume-low"></div>

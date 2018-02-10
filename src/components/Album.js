@@ -14,10 +14,12 @@ class Album extends Component {
       album: album,
       currentSong: album.songs[0],
       currentTime: 0,
-      volume: 80,
+      className: false,
+      volume: 0.80,
       duration: album.songs[0].duration,
       isPlaying: false
     };
+
 
     this.audioElement = document.createElement('audio');
     this.audioElement.src = album.songs[0].audioSrc;
@@ -33,19 +35,20 @@ class Album extends Component {
       },
       volumechange: e => {
         this.setState({ volume: this.audioElement.volume });
-      }
+      },
     };
     this.audioElement.addEventListener('timeupdate', this.eventListener.timeupdate);
     this.audioElement.addEventListener('durationchange', this.eventListener.durationchange);
     this.audioElement.addEventListener('volumechange', this.eventListener.volumechange);
+
   }
+
 
   componentWillUnmount() {
     this.audioElement.src = null;
-    this.audioElement = null;
     this.audioElement.removeEventListener('timeupdate', this.eventListener.timeupdate);
     this.audioElement.removeEventListener('durationchange', this.eventListener.durationchange);
-    this.audioElement.addEventListener('volumechange', this.eventListener.volumechange);
+    this.audioElement.removeEventListener('volumechange', this.eventListener.volumechange);
   }
 
   play() {
@@ -61,6 +64,19 @@ class Album extends Component {
   setSong(song) {
     this.audioElement.src = song.audioSrc;
     this.setState({ currentSong: song });
+  }
+
+  setClassName() {
+    if(this.state.isPlaying = true) {
+      this.setState({ className: 'ion-pause'});
+    }
+      this.setState({ className: 'ion-play' });
+    }
+
+  setSongNumber() {
+    if(!this.className) {
+      return '{index + 1}' };
+      return '';
   }
 
   formatTime(timeInSeconds) {
@@ -136,10 +152,8 @@ class Album extends Component {
               this.state.album.songs.map( (song, index) =>
             <tr className="song" key={index} onClick={() => this.handleSongClick(song)} >
               <td className="song-actions">
-                <button>
-                  <span className="song-number">{index + 1}</span>
-                  <span className="ion-play"></span>
-                  <span className="ion-pause"></span>
+                <button onClick= { this.setClassName() }>
+                    <span className={ this.state.className } >{ this.setSongNumber() }</span>
                 </button>
               </td>
               <td className="song-title">{song.title}</td>
@@ -154,12 +168,12 @@ class Album extends Component {
           currentSong={this.state.currentSong}
           currentTime={this.audioElement.currentTime}
           duration={this.audioElement.duration}
-          volume={this.audioElement.volume}
+          volume={this.state.volume}
           handleSongClick={() => this.handleSongClick(this.state.currentSong)}
           handlePrevClick={() => this.handlePrevClick()}
           handleNextClick={() => this.handleNextClick()}
           handleTimeChange={(e) => this.handleTimeChange(e)}
-          formatTime={() => this.formatTime()}
+          formatTime={(timeInSeconds) => this.formatTime(timeInSeconds)}
           handleVolumeChange={(e) => this.handleVolumeChange(e)}
         />
       </section>
