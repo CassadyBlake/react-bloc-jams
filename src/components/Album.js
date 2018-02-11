@@ -14,10 +14,10 @@ class Album extends Component {
       album: album,
       currentSong: album.songs[0],
       currentTime: 0,
-      className: false,
       volume: 0.80,
       duration: album.songs[0].duration,
-      isPlaying: false
+      isPlaying: false,
+      isMouseInside: false
     };
 
 
@@ -66,17 +66,12 @@ class Album extends Component {
     this.setState({ currentSong: song });
   }
 
-  setClassName() {
-    if(this.state.isPlaying = true) {
-      this.setState({ className: 'ion-pause'});
-    }
-      this.setState({ className: 'ion-play' });
-    }
+  mouseEnter() {
+    this.setState({ isMouseInside: true });
+  }
 
-  setSongNumber() {
-    if(!this.className) {
-      return '{index + 1}' };
-      return '';
+  mouseLeave() {
+    this.setState({ isMouseInside: false });
   }
 
   formatTime(timeInSeconds) {
@@ -95,9 +90,11 @@ class Album extends Component {
     const isSameSong = this.state.currentSong === song;
     if(this.state.isPlaying && isSameSong) {
       this.pause();
+      this.setState({ className: 'ion-play'});
     } else {
       if(!isSameSong) { this.setSong(song); }
       this.play();
+      this.setState({ className: 'ion-pause'});
     }
   }
 
@@ -152,8 +149,8 @@ class Album extends Component {
               this.state.album.songs.map( (song, index) =>
             <tr className="song" key={index} onClick={() => this.handleSongClick(song)} >
               <td className="song-actions">
-                <button onClick= { this.setClassName() }>
-                    <span className={ this.state.className } >{ this.setSongNumber() }</span>
+                <button onMouseEnter={() => this.mouseEnter() } onMouseLeave={() => this.mouseLeave() }>
+                    { !this.state.isPlaying ? ( this.state.isMouseInside ? <span className="ion-play"></span> : <span>{ index + 1 }</span> ) : <span className="ion-pause"></span> }
                 </button>
               </td>
               <td className="song-title">{song.title}</td>
@@ -181,5 +178,6 @@ class Album extends Component {
   }
 }
 
-
+//<span className={ this.state.className } >{ this.setSongNumber() }</span>
+//this.state.isPlaying ? 'ion-pause' : 'ion-play'
 export default Album;
