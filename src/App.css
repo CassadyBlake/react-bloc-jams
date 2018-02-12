@@ -125,7 +125,21 @@ button {
   height: 25px;
 }
 
+tr:hover .ion-play {
+  display: block;
+}
 
-button .ion-pause {
+tr .ion-play,
+tr .ion-pause,
+tr:hover .song-number {
+  display: none;
+}
 
+tr button:focus .ion-play,
+tr button:focus .ion-pause {
+  display: block;
+}
+
+tr button:focus .song-number {
+  display: none;
 }

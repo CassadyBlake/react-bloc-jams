@@ -17,7 +17,6 @@ class Album extends Component {
       volume: 0.80,
       duration: album.songs[0].duration,
       isPlaying: false,
-      isMouseInside: false
     };
 
 
@@ -66,14 +65,6 @@ class Album extends Component {
     this.setState({ currentSong: song });
   }
 
-  mouseEnter() {
-    this.setState({ isMouseInside: true });
-  }
-
-  mouseLeave() {
-    this.setState({ isMouseInside: false });
-  }
-
   formatTime(timeInSeconds) {
     let minutes = Math.floor(timeInSeconds / 60);
     let seconds = Math.floor(timeInSeconds - (minutes * 60));
@@ -90,11 +81,9 @@ class Album extends Component {
     const isSameSong = this.state.currentSong === song;
     if(this.state.isPlaying && isSameSong) {
       this.pause();
-      this.setState({ className: 'ion-play'});
     } else {
       if(!isSameSong) { this.setSong(song); }
       this.play();
-      this.setState({ className: 'ion-pause'});
     }
   }
 
@@ -149,8 +138,9 @@ class Album extends Component {
               this.state.album.songs.map( (song, index) =>
             <tr className="song" key={index} onClick={() => this.handleSongClick(song)} >
               <td className="song-actions">
-                <button onMouseEnter={() => this.mouseEnter() } onMouseLeave={() => this.mouseLeave() }>
-                    { !this.state.isPlaying ? ( this.state.isMouseInside ? <span className="ion-play"></span> : <span>{ index + 1 }</span> ) : <span className="ion-pause"></span> }
+                <button>
+                    <span className="song-number" >{ index +1 }</span>
+                    <span className={ this.state.currentSong === song ? (this.state.isPlaying ? "ion-pause" : "ion-play") : "ion-play" }></span>
                 </button>
               </td>
               <td className="song-title">{song.title}</td>
@@ -178,6 +168,6 @@ class Album extends Component {
   }
 }
 
-//<span className={ this.state.className } >{ this.setSongNumber() }</span>
-//this.state.isPlaying ? 'ion-pause' : 'ion-play'
+//{ !this.state.isPlaying ? ( this.state.isMouseInside ? <span className="ion-play"></span> : <span>{ index + 1 }</span> ) : <span className="ion-pause"></span> }
+//this.state.isPlaying ? "ion-pause" : "ion-play"
 export default Album;
