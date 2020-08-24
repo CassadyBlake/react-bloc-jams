@@ -1,0 +1,151 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Roboto:100i,300,400|Vampiro+One');
+
+* {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  height: 100%
+}
+
+.App {
+  height: 100%;
+  overflow-y: scroll;
+  background-color: #4A4737;
+  min-width: 400px;
+}
+
+header {
+  background: linear-gradient( #FCFC62, #FF73A0);
+  box-shadow: 0px 2px 5px #171717;
+}
+
+nav {
+    align-content: center;
+}
+
+main {
+  min-height: calc(100% - 100px);
+  padding-bottom: 150px !important;
+}
+
+footer {
+  color: #4A4737;
+  background-color: rgb(17, 17, 17);
+  width: 100%;
+  margin-top: -100px;
+  height: 100px;
+  text-align: left;
+  line-height: 100px;
+}
+
+footer span {
+  padding-left: 2rem;
+}
+
+
+nav a {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-self: flex-end;
+    color: #FCFC62;
+    font-family: 'Roboto';
+    font-weight: lighter;
+    font-size: 20px;
+    text-decoration: none;
+    height: 75px;
+    line-height: 75px;
+}
+
+nav a:focus::after,
+nav a:hover::after {
+  position: absolute;
+  content: "";
+  top: 55px;
+  height: 3px;
+  width: 60px;
+  background-color: #FCFC62;
+}
+
+header h1 {
+  color: #FCFC62;
+  font-family: 'Vampiro One';
+  font-size: 48px;
+  letter-spacing: 40px;
+  margin: 0px;
+  padding: 10px 0px;
+}
+
+h1 {
+  color: #FCFC62;
+  font-family: 'Roboto', sans-serif;
+  font-style: italic;
+}
+
+h2 {
+  color: #FCFC62;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+}
+
+h4 {
+  color: #FF73A0;
+}
+
+.landing {
+  margin: auto;
+  margin-top: 5rem;
+  position: relative;
+}
+
+svg{
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.point {
+  background-image: url('/assets/images/landing.svg');
+  position: relative;
+  margin: 0 10px;
+  padding: 2rem 10rem;
+}
+
+.point:nth-child(2) {
+  background-image: url('/assets/images/landing-middle.svg');
+}
+
+.point-title {
+  color: #8EF9F3;
+  font-family: 'Roboto';
+  font-style: italic;
+  font-size: 36px;
+  text-align: left;
+  z-index: 3;
+}
+
+.point-description {
+  font-family: 'Roboto';
+  font-style: italic;
+  color: #FEFFEA;
+  padding-left: 50%;
+  text-align: right;
+  z-index: 3;
+}
+
+.card {
+  background: linear-gradient(45deg, rgb(17, 17, 17), #302e25);
+  box-shadow: 1px 2px 5px #171717;
+  border-radius: 1rem;
+  padding: 1rem 2rem;
+  opacity: 1;
+}
+
+.card:hover {
+  opacity: .8;
+}
+

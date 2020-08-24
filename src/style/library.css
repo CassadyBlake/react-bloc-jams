@@ -1,0 +1,35 @@
+.library {
+    margin-top: 5rem;
+}
+
+.library .card {
+    min-width: 200px;
+}
+
+.library, a {
+    color: #171717;
+    font-family: 'Roboto';
+    font-size: 20px;
+    font-style: normal;
+    text-align: left;
+    text-decoration: none;
+}
+
+.library, a, h5 {
+    text-align: left;
+}
+
+.library, img {
+width: 100%;
+min-width: 150px;
+}
+
+a div {
+    color: #8EF9F3;
+    font-size: 12px;
+    font-style: italic;
+    text-align: left;
+}
+a div:first-of-type {
+    font-size: 18px;
+}

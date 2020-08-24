@@ -1,0 +1,42 @@
+
+  .album {
+    text-align: left;
+    margin-top: 5rem;
+  }
+
+  .album-details { 
+    color: #4A4737;
+    line-height: 0;
+    padding: 1rem;
+  }
+
+  button {
+    background-color: #171717;
+    border: none;
+    color: #8EF9F3;
+    width: 25px;
+    height: 25px;
+  }
+  
+  .album table {
+      width: 100%;
+  }
+
+  tr:hover .ion-play {
+    display: block;
+  }
+  
+  tr .ion-play,
+  tr .ion-pause,
+  tr:hover .song-number {
+    display: none;
+  }
+  
+  tr button:focus .ion-play,
+  tr button:focus .ion-pause {
+    display: block;
+  }
+  
+  tr button:focus .song-number {
+    display: none;
+  } 
