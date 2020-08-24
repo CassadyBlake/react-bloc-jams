@@ -12,15 +12,15 @@ class App extends Component {
         <header>
           <nav className="row">
             <h1 className="offset-by-four four columns">SPUN</h1>
-            <Link className="two columns" to='/'>Landing</Link>
-            <Link className="two columns" to='/library'> Library</Link>
+            <Link className="two columns" to={`${process.env.PUBLIC_URL}/`}>Landing</Link>
+            <Link className="two columns" to={`${process.env.PUBLIC_URL}/library`}> Library</Link>
           </nav>
           
         </header>
         <main className="container">
-          <Route exact path="/" component={Landing} />
-          <Route path="/library" component={Library} />
-          <Route path="/album/:slug" component={Album} />
+            <Route exact path={`${process.env.PUBLIC_URL}/`} component={Landing} />
+            <Route path={`${process.env.PUBLIC_URL}/library`} component={Library} />
+            <Route path={`${process.env.PUBLIC_URL}/album/:slug`} component={Album} />
         </main>
         <footer><span>© Spun Inc. Seattle, WA USA</span></footer>
       </div>
