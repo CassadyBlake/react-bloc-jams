@@ -1,4 +1,6 @@
-
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Roboto:100i,300,400|Vampiro+One');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&display=swap');
+  
   .album {
     text-align: left;
     margin-top: 5rem;
@@ -8,6 +10,21 @@
     color: #4A4737;
     line-height: 0;
     padding: 1rem;
+  }
+
+  .album-title {
+    color:#FCFC62;
+    font-size: 4rem;
+    font-style: italic;
+    line-height: 4rem;
+  }
+
+  .artist {
+    color: #8EF9F3;
+    font-weight: 300;
+    font-style: italic;
+    font-size: 3rem;
+    line-height: 3rem;
   }
 
   button {

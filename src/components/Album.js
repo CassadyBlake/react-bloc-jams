@@ -21,7 +21,7 @@ class Album extends Component {
 
 
     this.audioElement = document.createElement('audio');
-    this.audioElement.src = album.songs[0].audioSrc;
+    this.audioElement.src = `.${album.songs[0].audioSrc}`;
   }
 
   componentDidMount() {
@@ -122,14 +122,14 @@ class Album extends Component {
       <div className="card">
         <div  id="album-info">
           <div className="album-details">
-            <h2 id="album-title">{this.state.album.title}</h2>
-            <h4 className="artist">{this.state.album.artist}</h4>
-            <p id="release-info">{this.state.album.releaseInfo}</p>
+            <p className="album-title" id="album-title">{this.state.album.title}</p>
+            <p className="artist">{this.state.album.artist}</p>
+            <p className="label-info" id="release-info">{this.state.album.releaseInfo}</p>
           </div>
         </div>
         <div className="row">
           <div className="six columns">
-            <img id="album-cover-art" src={this.state.album.albumCover} alt={this.state.album.slug}/>
+            <img src={`.${this.state.album.albumCover}`} alt={this.state.album.slug}/>
           </div>
           <div className="six columns">
             <table id="song-list">

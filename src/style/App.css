@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Roboto:100i,300,400|Vampiro+One');
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&display=swap');
 
 * {
   text-align: center;
@@ -13,7 +14,7 @@
 .App {
   height: 100%;
   overflow-y: scroll;
-  background-color: #4A4737;
+  background-color: #eee9d3;
   min-width: 400px;
 }
 
@@ -48,13 +49,14 @@ footer span {
 
 nav a {
     position: relative;
+    float: right;
+    margin-right: 2rem;
     display: flex;
     flex-direction: column;
-    justify-self: flex-end;
     color: #FCFC62;
-    font-family: 'Roboto';
-    font-weight: lighter;
-    font-size: 20px;
+    font-family: 'Lato';
+    font-size: 2rem;
+    font-style: italic;
     text-decoration: none;
     height: 75px;
     line-height: 75px;
@@ -81,14 +83,12 @@ header h1 {
 
 h1 {
   color: #FCFC62;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Lato';
   font-style: italic;
 }
 
 h2 {
   color: #FCFC62;
-  font-family: 'Roboto', sans-serif;
-  font-style: normal;
 }
 
 h4 {
@@ -109,19 +109,19 @@ svg{
 }
 
 .point {
-  background-image: url('/assets/images/landing.svg');
+  background-image: url('../images/landing.svg');
   position: relative;
   margin: 0 10px;
   padding: 2rem 10rem;
 }
 
 .point:nth-child(2) {
-  background-image: url('/assets/images/landing-middle.svg');
+  background-image: url('../images/landing-middle.svg');
 }
 
 .point-title {
   color: #8EF9F3;
-  font-family: 'Roboto';
+  font-family: 'Lato';
   font-style: italic;
   font-size: 36px;
   text-align: left;
@@ -129,7 +129,7 @@ svg{
 }
 
 .point-description {
-  font-family: 'Roboto';
+  font-family: 'Lato';
   font-style: italic;
   color: #FEFFEA;
   padding-left: 50%;
@@ -142,10 +142,8 @@ svg{
   box-shadow: 1px 2px 5px #171717;
   border-radius: 1rem;
   padding: 1rem 2rem;
+  margin-top: 2rem;
   opacity: 1;
 }
 
-.card:hover {
-  opacity: .8;
-}
 

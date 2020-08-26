@@ -8,11 +8,11 @@ import './style/library.css';
 import './style/App.css';
 import './style/skeleton.css';
 import App from './App';
-import registerServiceWorker from './registerServiceWorker';
+// import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
-  <BrowserRouter basename={'/spun'}>
+  <BrowserRouter basename={'spun/'}>
     <App />
   </BrowserRouter>
   , document.getElementById('root'));
-registerServiceWorker();
+// registerServiceWorker();
